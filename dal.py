@@ -32,3 +32,12 @@ def get_new_targets():
     cursor.execute(query)
     result = cursor.fetchall()
     return result
+
+def get_target_movements(entity_id):
+    query = """SELECT reported_lat, reported_lon FROM `intel_signals` 
+               WHERE entity_id = "TGT-013" ORDER BY reported_lat;"""
+    conn = get_mysql_connection()
+    cursor = conn.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    return result

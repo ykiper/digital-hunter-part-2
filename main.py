@@ -1,6 +1,6 @@
 import mysql.connector
 from fastapi import FastAPI
-from dal import get_quality_target_movements_warning, get_aggregation_sources_count, get_new_targets
+from dal import get_quality_target_movements_warning, get_aggregation_sources_count, get_new_targets, get_target_movements
 
 app = FastAPI()
 
@@ -20,6 +20,9 @@ def get_new_targets_endpoint():
     return get_new_targets()
 
 
+@app.get("/tsrget_move/{entity_id}")
+def get_target_movements_endpoint(entity_id):
+    return get_target_movements(entity_id)
 
 
 
