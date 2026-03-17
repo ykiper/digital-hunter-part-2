@@ -11,5 +11,18 @@ services:
       - mysql_data:/var/lib/mysql
       - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
+  api:
+    build: .
+    container_name: fastapi-application
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_PORT: 3306
+      MYSQL_user: root
+      MYSQL_password: root
+      MYSQL_database: digital_hunter
+    ports:
+      - '8000:8000'
+
+
 volumes:
   mysql_data:
