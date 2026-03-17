@@ -14,4 +14,4 @@ def get_mysql_connection():
         conn = mysql.connector.connect(**config)
         return conn
     except mysql.connector.Error as e:
-        print("an error occurred", e)
+        return f"an error occurred. {e}"
